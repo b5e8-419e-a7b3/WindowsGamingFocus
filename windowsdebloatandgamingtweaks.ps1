@@ -1,15 +1,9 @@
 ##########
-# Master Branch : https://github.com/ChrisTitusTech/windowsscript
-# Current Author : Daddy Madu 
-# Current Author Source: https://github.com/DaddyMadu/WindowsGamingFocus
+# Master Branch : https://github.com/ChrisTitusTech/windowsscript & https://github.com/DaddyMadu/WindowsGamingFocus
+# Current Author : b5e8-419e-a7b3
 #
 #    Note from author: Never run scripts without reading them & understanding what they do.
 #
-#	Addition: One command to rule them all, One command to find it, and One command to Run it! 
-#
-#     > powershell -nop -c "iex(New-Object Net.WebClient).DownloadString('http://madu.gg/ps')"
-#
-#     Changelogs Moved to ReadMe File for better mangement. 
 #
 ##########
 $host.ui.RawUI.WindowTitle = "b5e8-419e-a7b3 Ultimate Windows Debloater and Gaming Focus Tweaker"
