@@ -1,7 +1,7 @@
 ##########
-# Master Branch : https://github.com/ChrisTitusTech/win10script
+# Master Branch : https://github.com/ChrisTitusTech/windowsscript
 # Current Author : Daddy Madu 
-# Current Author Source: https://github.com/DaddyMadu/Windows10GamingFocus
+# Current Author Source: https://github.com/DaddyMadu/WindowsGamingFocus
 #
 #    Note from author: Never run scripts without reading them & understanding what they do.
 #
@@ -12,16 +12,16 @@
 #     Changelogs Moved to ReadMe File for better mangement. 
 #
 ##########
-$host.ui.RawUI.WindowTitle = "DaddyMadu Ultimate Windows Debloater and Gaming Focus Tweaker"
-cmd /c 'title [DaddyMadu Ultimate Windows Debloater and Gaming Focus Tweaker]'
-Write-Host 'Welcome to DaddyMadu Ultimate Windows Debloater and Gaming Focus Tweaker';
+$host.ui.RawUI.WindowTitle = "b5e8-419e-a7b3 Ultimate Windows Debloater and Gaming Focus Tweaker"
+cmd /c 'title [b5e8-419e-a7b3 Ultimate Windows Debloater and Gaming Focus Tweaker]'
+Write-Host 'Welcome to b5e8-419e-a7b3 Ultimate Windows Debloater and Gaming Focus Tweaker';
 Write-Host "Please DISABLE your ANTIVIRUS to prevent any issues and PRESS any KEY to Continue!" -ForegroundColor Red -BackgroundColor Black
 $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
 New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
 New-PSDrive -Name HKU -PSProvider Registry -Root HKEY_USERS | Out-Null
 $currentexename = (([Diagnostics.Process]::GetCurrentProcess().ProcessName) + '.exe')
 	if ($currentexename -eq "pwsh.exe") {
-		Start-Process Powershell -Argumentlist '-ExecutionPolicy bypass -NoProfile -command "irm "https://github.com/DaddyMadu/Windows10GamingFocus/raw/master/win10debloatandgamingtweaks.ps1" | iex"' -Verb RunAs
+		Start-Process Powershell -Argumentlist '-ExecutionPolicy bypass -NoProfile -command "irm "https://github.com/b5e8-419e-a7b3/WindowsGamingFocus/raw/master/windowsdebloatandgamingtweaks.ps1" | iex"' -Verb RunAs
 		exit
 	}
 Clear-Host
@@ -467,7 +467,7 @@ Function InstallTitusProgs {
 	choco install chocolatey-core.extension -y
 	Write-Output "Running O&O Shutup with Recommended Settings"
 	Import-Module BitsTransfer
-	Start-BitsTransfer -Source "https://raw.githubusercontent.com/DaddyMadu/Windows10GamingFocus/master/ooshutup10.cfg" -Destination ooshutup10.cfg
+	Start-BitsTransfer -Source "https://raw.githubusercontent.com/b5e8-419e-a7b3/WindowsGamingFocus/master/ooshutup10.cfg" -Destination ooshutup10.cfg
 	Start-BitsTransfer -Source "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -Destination OOSU10.exe
 	./OOSU10.exe ooshutup10.cfg /quiet
 	Start-Sleep -Second 10
@@ -2513,7 +2513,7 @@ function Windows11Extra {
 }
 # Enable Quality Of Life Tweaks
 Function QOL {
-       	Write-Output "Enabling DaddyMadu Quality of Life Tweaks..."
+       	Write-Output "Enabling b5e8-419e-a7b3 Quality of Life Tweaks..."
 	$errpref = $ErrorActionPreference #save actual preference
         $ErrorActionPreference = "silentlycontinue"
 	New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement" -ErrorAction SilentlyContinue | Out-Null
@@ -3297,41 +3297,6 @@ Function FixURLext {
     Pop-Location
     choco uninstall -y setuserfta | Out-Null
 }
-    
-#DaddyMadu Ultimate CLeaner
-Function UltimateCleaner {
-    Write-Host "Running DaddyMadu Ultimate Cleaner => Temp folders & Flush DNS + Reset IP...."
-cmd /c 'netsh winsock reset 2>nul' >$null
-cmd /c 'netsh int ip reset 2>nul' >$null
-cmd /c 'ipconfig /release 2>nul' >$null
-cmd /c 'ipconfig /renew 2>nul' >$null
-cmd /c 'ipconfig /flushdns 2>nul' >$null
-cmd /c 'echo Flush DNS + IP Reset Completed Successfully!'
-cmd /c 'echo Clearing Temp folders....'
-cmd /c 'del /f /s /q %systemdrive%\*.tmp 2>nul' >$null
-cmd /c 'del /f /s /q %systemdrive%\*._mp 2>nul' >$null
-cmd /c 'del /f /s /q %systemdrive%\*.log 2>nul' >$null
-cmd /c 'del /f /s /q %systemdrive%\*.gid 2>nul' >$null
-cmd /c 'del /f /s /q %systemdrive%\*.chk 2>nul' >$null
-cmd /c 'del /f /s /q %systemdrive%\*.old 2>nul' >$null
-cmd /c 'del /f /s /q %systemdrive%\recycled\*.* 2>nul' >$null
-cmd /c 'del /f /s /q %windir%\*.bak 2>nul' >$null
-cmd /c 'del /f /s /q %windir%\prefetch\*.* 2>nul' >$null
-cmd /c 'del /f /q %userprofile%\cookies\*.* 2>nul' >$null
-cmd /c 'del /f /q %userprofile%\recent\*.* 2>nul' >$null
-cmd /c 'del /f /s /q %userprofile%\Local Settings\Temporary Internet Files\*.* 2>nul' >$null
-$errpref = $ErrorActionPreference #save actual preference
-$ErrorActionPreference = "silentlycontinue"
-Get-ChildItem -Path "$env:temp" -Exclude "dmtmp" | ForEach-Object ($_) {
-       "CLEANING :" + $_.fullname
-       Remove-Item $_.fullname -Force -Recurse
-       "CLEANED... :" + $_.fullname
-   }
-$ErrorActionPreference = $errpref #restore previous preference
-cmd /c 'del /f /s /q %userprofile%\recent\*.* 2>nul' >$null
-cmd /c 'del /f /s /q %windir%\Temp\*.* 2>nul' >$null
-cmd /c 'echo Temp folders Cleared Successfully!'
-}
 
 #Notifying user to reboot!
 Function Finished {
@@ -3339,11 +3304,10 @@ Function Finished {
 	Set-ItemProperty -Path "HKCR:\Msi.Package\shell\runas" -Name "HasLUAShield" -Type String -Value "" | Out-Null -ErrorAction SilentlyContinue
 	Set-ItemProperty -Path "HKCR:\Msi.Package\shell\runas\command" -Name "(Default)" -Type ExpandString -Value '"%SystemRoot%\System32\msiexec.exe" /i "%1" %*' | Out-Null -ErrorAction SilentlyContinue
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "AllowClipboardHistory" -Type DWord -Value 1
-        cmd /c 'REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Manufacturer" /t REG_SZ /d "This PC is Optimized by DaddyMadu" /f 2>nul' >$null
-        cmd /c 'REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "SupportURL" /t REG_SZ /d "https://madu.gg" /f 2>nul' >$null
+        cmd /c 'REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "Manufacturer" /t REG_SZ /d "b5e8-419e-a7b3" /f 2>nul' >$null
+        cmd /c 'REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation" /v "SupportURL" /t REG_SZ /d "https://github.com/b5e8-419e-a7b3" /f 2>nul' >$null
 	Start-Sleep -s 5
-        Write-Output "Done! Please Reboot Your PC! Don't forget to follow me on Social Media."
-        Start-Process "https://madu.gg"
+        Write-Output "Done! Please Reboot Your PC!"
 }
 
 ##########
@@ -3353,7 +3317,7 @@ Function Finished {
 # Relaunch the script with administrator privileges
 Function RequireAdmin {
 	If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-		Start-Process Powershell -Argumentlist '-ExecutionPolicy bypass -NoProfile -command "irm "https://github.com/DaddyMadu/Windows10GamingFocus/raw/master/win10debloatandgamingtweaks.ps1" | iex"' -Verb RunAs
+		Start-Process Powershell -Argumentlist '-ExecutionPolicy bypass -NoProfile -command "irm "https://github.com/b5e8-419e-a7b3/WindowsGamingFocus/raw/master/windowsdebloatandgamingtweaks.ps1" | iex"' -Verb RunAs
 		Exit
 	}
 }
@@ -3394,7 +3358,7 @@ Function CreateRestorePoint {
   Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore" -Name "SystemRestorePointCreationFrequency" -Value 0
   cmd /c 'vssadmin resize shadowstorage /on="%SystemDrive%" /For="%SystemDrive%" /MaxSize=5GB 2>nul' >$null
   Enable-ComputerRestore -Drive "$env:SystemDrive\"
-  Checkpoint-Computer -Description "BeforeDaddyMaduScript" -RestorePointType "MODIFY_SETTINGS"
+  Checkpoint-Computer -Description "Beforeb5e8-419e-a7b3Script" -RestorePointType "MODIFY_SETTINGS"
 }
 
 # In case you have removed them for good, you can try to restore the files using installation medium as follows
