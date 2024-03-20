@@ -2457,7 +2457,7 @@ Function UnpinStartMenuTiles {
 		Remove-ItemProperty -Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "StartLayoutFile" | Out-Null -ErrorAction SilentlyContinue
 		Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_Layout" -Type DWord -Value 1 | Out-Null -ErrorAction SilentlyContinue
 	} Else {
-	Invoke-WebRequest -Uri "https://git.io/JL54C" -OutFile "$env:UserProfile\StartLayout.xml" -ErrorAction SilentlyContinue
+	Invoke-WebRequest -Uri "https://github.com/b5e8-419e-a7b3/WindowsGamingFocus/raw/master/StartLayout.xml" -OutFile "$env:UserProfile\StartLayout.xml" -ErrorAction SilentlyContinue
 	Import-StartLayout -layoutpath "$env:UserProfile\StartLayout.xml" -MountPath "$env:SystemDrive\"
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "LockedStartLayout" -Type DWord -Value 1 | Out-Null -ErrorAction SilentlyContinue
 	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer" -Name "StartLayoutFile" -Type ExpandString -Value "%USERPROFILE%\StartLayout.xml" | Out-Null -ErrorAction SilentlyContinue
@@ -2763,11 +2763,11 @@ Function EnableUlimatePower {
 }
 	$customScheme = ($powerSchemes | Where-Object { $_.SchemeName -eq 'Bitsum Highest Performance' }).GUID
  	if ($customScheme -eq 'e6a66b66-d6df-666d-aa66-66f66666eb66') {
-  	Write-Output "Power Plan already exist! setting it as active..."
+  	Write-Output "Power Plan already exists! setting it as active..."
    	powercfg -setactive e6a66b66-d6df-666d-aa66-66f66666eb66 | Out-Null
     } else {
 	Write-Output "Enabling and Activating Bitsum Highest Performance Power Plan..."
-	Invoke-WebRequest -Uri "https://git.io/JsWhn" -OutFile "$Env:windir\system32\Bitsum-Highest-Performance.pow" -ErrorAction SilentlyContinue
+	Invoke-WebRequest -Uri "https://github.com/b5e8-419e-a7b3/WindowsGamingFocus/raw/master/Bitsum-Highest-Performance.pow" -OutFile "$Env:windir\system32\Bitsum-Highest-Performance.pow" -ErrorAction SilentlyContinue
 	powercfg -import "$Env:windir\system32\Bitsum-Highest-Performance.pow" e6a66b66-d6df-666d-aa66-66f66666eb66 | Out-Null
 	powercfg -setactive e6a66b66-d6df-666d-aa66-66f66666eb66 | Out-Null
  }
@@ -2900,8 +2900,8 @@ Function NvidiaTweaks {
        $CheckGPU = wmic path win32_VideoController get name
        if(($CheckGPU -like "*GTX*") -or ($CheckGPU -like "*RTX*")) {
        Write-Output "NVIDIA GTX/RTX Card Detected! Applying Nvidia Power Tweaks..."
-       Invoke-WebRequest -Uri "https://git.io/JLP93" -OutFile "$Env:windir\system32\BaseProfile.nip" -ErrorAction SilentlyContinue
-       Invoke-WebRequest -Uri "https://git.io/JLP9n" -OutFile "$Env:windir\system32\nvidiaProfileInspector.exe" -ErrorAction SilentlyContinue
+       Invoke-WebRequest -Uri "https://github.com/b5e8-419e-a7b3/WindowsGamingFocus/raw/master/BaseProfile.nip" -OutFile "$Env:windir\system32\BaseProfile.nip" -ErrorAction SilentlyContinue
+       Invoke-WebRequest -Uri "https://github.com/b5e8-419e-a7b3/WindowsGamingFocus/raw/master/nvidiaProfileInspector.exe" -OutFile "$Env:windir\system32\nvidiaProfileInspector.exe" -ErrorAction SilentlyContinue
        Push-Location
        set-location "$Env:windir\system32\"
        nvidiaProfileInspector.exe /s -load "BaseProfile.nip"
