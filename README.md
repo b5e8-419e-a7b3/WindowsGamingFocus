@@ -1,4 +1,4 @@
-# Windows10GamingFocus
+# WindowsGamingFocus
 This is A FORK Based On ChrisTitusTech that's foucus on debloat and optimize windows 10/11 for the lowest latency and best gaming experience, the Ultimate Windows 10/11 Script is a creation from multiple debloat scripts and gists from github. I also added Chocolatey and other tools to the script that I install on every machine.
 ```
 Warrning: I am NOT responsible for what you do to your Devices/Systems, so follow these instructions at your own risk. Make sure you know what you're doing, it's best to understand the process rather than just copy and paste commands and such.
@@ -266,9 +266,7 @@ Option to Enable & Install Or Disable & Uninstall Microsoft OneDrive
 - disabled any power saving option under any network device.
 - disabled offloading, Green Ethernet, Giga Lite, EEE, Advanced EEE, Energy Efficient from all network devices.
 - Removing Edit with Paint 3D from context menu.
-- Running DaddyMadu Ultimate Cleaner => Temp folders & Flush DNS + Reset IP.
 - Fix issue with games shortcut that created by games lunchers turned white.
-- Clearing Temp folders.
 
 # Notice Before Use!
 
