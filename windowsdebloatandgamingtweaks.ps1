@@ -3349,7 +3349,6 @@ Clear-Host
     "*Lens*"
     "*Sway*"
     "*OneConnect*"
-    "*People*"
     "*Print3D*"
     "*RemoteDesktop*"
     "*SkypeApp*"
