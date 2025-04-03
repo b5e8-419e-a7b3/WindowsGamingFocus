@@ -11,6 +11,12 @@
         <ValueType>Dword</ValueType>
       </ProfileSetting>
       <ProfileSetting>
+        <SettingNameInfo />
+        <SettingID>983226</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <ProfileSetting>
         <SettingNameInfo>Texture filtering - Trilinear optimization</SettingNameInfo>
         <SettingID>3066610</SettingID>
         <SettingValue>1</SettingValue>
@@ -121,7 +127,7 @@
       <ProfileSetting>
         <SettingNameInfo>Override scaling ratio for DLSS-SR</SettingNameInfo>
         <SettingID>283385333</SettingID>
-        <SettingValue>45</SettingValue>
+        <SettingValue>88</SettingValue>
         <ValueType>Dword</ValueType>
       </ProfileSetting>
       <ProfileSetting>
